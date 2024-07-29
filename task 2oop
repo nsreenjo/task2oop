@@ -1,0 +1,97 @@
+class student {
+    private $name;
+    private $age;
+    private $studentID;
+
+    public function __construct($name, $age, $studentID) {
+        $this->name=$name;
+        $this->age=$age;
+        $this->studentID=$studentID;
+        
+        }
+
+  public function getName() {
+      return $this-> name;
+}
+public function getage(){
+     return $this->age;
+}
+
+public function getStudentID() {
+    return $this->studentID;
+}
+
+public function getDetails(){
+    return "studentID: {$this->studentID} . agg :{ $this->age} . name: {$this-> name} " ;
+}
+
+public function setname($name){
+    $this->name=$name;
+}
+
+public function setagg($age){
+    $this->age=$age;
+}
+
+public function setStudentID($StudentID){
+$this-> studentID=$StudentID;
+}}
+
+////////////////////////// 2 ////////////////////
+
+class Classroom {
+    private $student=[];
+public function setstu($student){
+    $this->student=$student;
+}
+
+public function getstu(){
+    return $this->student;
+}
+
+ public function addstu($student){
+    $this->student[]=$student;
+}
+public function removestu($studentID){
+    foreach($this->student as $key => $student){
+     if($student->studentID===$studentID){
+        unset($this->student[$key]);    }
+}
+
+
+
+
+}
+public function liststu() {
+        foreach($this->student as $student) {
+        echo $student->getDetails() . "<br>";
+         }
+}}
+
+
+$Classroom  = new Classroom ();
+ $stu1 = new student("nsreen", 25, 101);
+ $stu2 = new student("yasmeen", 14, 102);
+ $stu3 = new student("besan", 19, 103);
+
+
+ $Classroom->addstu($stu1);
+$Classroom->addstu($stu2);
+$Classroom->addstu($stu3);
+
+echo "<hr>";
+$Classroom->liststu();
+
+$Classroom->removestu("102");
+
+echo "<hr>";
+
+
+
+
+
+
+
+
+
+?>
